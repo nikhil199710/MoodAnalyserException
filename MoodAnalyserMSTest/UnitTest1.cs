@@ -31,5 +31,20 @@ namespace MoodAnalyserMSTest
 
             Assert.AreEqual(expected, mood);
         }
+
+        [TestMethod]
+        public void Given_Empty_Mood_Should_Throw_CustomException_Indicating_EmptyMood()
+        {
+            try
+            {
+                string message = "";
+                MoodAnalyser moodAnalyser = new MoodAnalyser(message);
+                string mood = moodAnalyser.analyseMoodCustom();
+            }
+            catch(MoodAnalyserCustomException e)
+            {
+                Assert.AreEqual("Mood should not be empty", e.Message);
+            }
+        }
     }
 }
