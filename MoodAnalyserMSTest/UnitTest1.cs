@@ -17,5 +17,19 @@ namespace MoodAnalyserMSTest
 
             Assert.AreEqual(expected, mood);
         }
+
+        [TestMethod]
+        [DataRow(null)]
+        public void GiveNullReturnSAD(string message)
+        {
+
+            //string message = "I am Sad";
+            string expected = "Happy";
+            MoodAnalyser moodanalyser = new MoodAnalyser(message);
+
+            string mood = moodanalyser.analyseMood();
+
+            Assert.AreEqual(expected, mood);
+        }
     }
 }

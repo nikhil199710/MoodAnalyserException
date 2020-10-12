@@ -15,12 +15,19 @@ namespace MoodAnalyserExceptionDeck
 
         public string analyseMood()
         {
-            if (this.message.Contains("Sad"))
+            try
             {
-                return "Sad";
+                if (this.message.Contains("Sad"))
+                {
+                    return "Sad";
+                }
+                else
+                    return "Happy";
             }
-            else
+            catch
+            {
                 return "Happy";
+            }
         }
     }
 }
